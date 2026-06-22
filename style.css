@@ -21,6 +21,7 @@ body {
   color: var(--dark);
   font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden; /* prevents horizontal scroll from full-bleed bg-zones */
 }
 
 a { text-decoration: none; color: inherit; }
@@ -553,16 +554,32 @@ nav {
 
 /* ── BACKGROUND ZONES (case study sections) ─────────────────────────────── */
 /* Image guide: 1920 × 900 px min, landscape. PNG or JPG. Max ~600 KB.
-   To shift focus point, add inline style: style="--zone-bg:url('x.png'); background-position: center 30%" */
+   To shift focus point override inline: style="--zone-bg:url('x.png'); background-position: center 30%" */
 .cs-bg-zone {
   position: relative;
-  margin: 0 -2.5rem;
-  padding: 0.25rem 2.5rem;
+  /* Full-viewport bleed: escapes the max-width container on both sides */
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  /* Inner padding keeps text within the 1100 px content column */
+  padding: 0.25rem max(2.5rem, calc((100vw - 1100px) / 2 + 2.5rem));
+  /* Background */
   background-image: var(--zone-bg, none);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
   background-attachment: local;
+}
+/* First zone: absorb the section's top padding so image starts flush */
+.cs-section > .cs-bg-zone:first-child {
+  margin-top: -4.5rem;
+  padding-top: 4.5rem;
+}
+/* Last zone: absorb the section's bottom padding so image ends flush */
+.cs-section > .cs-bg-zone:last-child {
+  margin-bottom: -4.5rem;
+  padding-bottom: 4.5rem;
 }
 .cs-bg-zone::before {
   content: '';
@@ -575,9 +592,6 @@ nav {
 .cs-bg-zone > * {
   position: relative;
   z-index: 1;
-}
-@media (max-width: 640px) {
-  .cs-bg-zone { margin: 0 -1.25rem; padding: 0.25rem 1.25rem; }
 }
 
 /* Transparent child backgrounds so image shows through */
