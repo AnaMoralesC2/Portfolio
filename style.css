@@ -551,30 +551,24 @@ nav {
   .cs-video-hero { width: calc(100% + 2.5rem); margin-left: -1.25rem; margin-right: -1.25rem; }
 }
 
-/* ── EXECUTION BACKGROUND IMAGE ─────────────────────────────────────────── */
-.cs-exec-bg {
+/* ── SECTION BACKGROUND IMAGE ───────────────────────────────────────────── */
+.cs-section--bg {
   position: relative;
-  margin: 0 -2.5rem;
-  padding: 1.75rem 2.5rem;
-  border-radius: 4px;
 }
-.cs-exec-bg::before {
+.cs-section--bg::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: var(--exec-bg, none);
+  background-image: var(--section-bg, none);
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   opacity: 0.07;
   z-index: 0;
-  border-radius: 4px;
+  pointer-events: none;
 }
-.cs-exec-bg > * {
+.cs-section--bg > * {
   position: relative;
   z-index: 1;
-}
-@media (max-width: 640px) {
-  .cs-exec-bg { margin: 0 -1.25rem; padding: 1.25rem; }
 }
 
 /* Results table */
