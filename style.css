@@ -552,6 +552,26 @@ nav {
   .cs-video-hero { width: calc(100% + 2.5rem); margin-left: -1.25rem; margin-right: -1.25rem; }
 }
 
+/* ── HERO IMAGE (full-bleed still image, used in Toybank and similar cases) ─ */
+.cs-hero-img {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 2.5rem 0;
+  overflow: hidden;
+}
+.cs-hero-img img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+@media (max-width: 640px) {
+  .cs-hero-img img { height: 240px; }
+}
+
 /* ── BACKGROUND ZONES (case study sections) ─────────────────────────────── */
 /* Image guide: 1920 × 900 px min, landscape. PNG or JPG. Max ~600 KB.
    To shift focus point override inline: style="--zone-bg:url('x.png'); background-position: center 30%" */
