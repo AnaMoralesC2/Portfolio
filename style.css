@@ -211,6 +211,14 @@ nav {
 
 .about-para:last-child { margin-bottom: 0; }
 
+.about-signature {
+  margin-top: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+}
+
 /* ── ACHIEVEMENTS ───────────────────────────────────────────────────────── */
 .achievement-list { display: flex; flex-direction: column; gap: 1.25rem; }
 
@@ -285,7 +293,7 @@ nav {
 }
 
 .cs-card-header {
-  height: 90px;
+  height: 64px;
   position: relative;
   display: flex;
   align-items: flex-end;
