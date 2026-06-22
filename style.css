@@ -576,6 +576,11 @@ nav {
   .cs-bg-zone { margin: 0 -1.25rem; padding: 0.25rem 1.25rem; }
 }
 
+/* Make solid-bg children transparent inside bg zones so image shows through */
+.cs-bg-zone .res-cell       { background: rgba(248, 244, 240, 0.72); }
+.cs-bg-zone .awards-box     { background: rgba(237, 242, 247, 0.72); }
+.cs-bg-zone .my-role-body   { background: rgba(242, 237, 230, 0.72); }
+
 /* Results table */
 .results-table {
   display: grid;
